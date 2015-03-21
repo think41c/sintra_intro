@@ -9,12 +9,14 @@ get '/' do
   erb :index, :locals => {:number => $number, 
                           :message => message
                          }
-  #guess_checker
 end
 
 def guess_checker(guess)
   if guess > $number
     "too high"
+  elsif $number == guess
+    "correct!"
+    "The SECRET NUMBER is <%= number %>"
   else 
     "too low"
   end
